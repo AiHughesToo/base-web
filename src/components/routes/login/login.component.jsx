@@ -8,15 +8,17 @@ const Login = () => {
     <div className='main-page'>
         <div className='login-content'>
             <div className='heading-container'>
-                <h2>Sign In</h2>
+                <h2>I already have an account</h2>
+                <p>Sign in with your email and password.</p>
             </div>
             <LoginForm /> 
         </div>
         <div className='register-content'>
             <div className='heading-container'>
-                <h2>Register</h2>
+                <h2>I do not have an account</h2>
+                <p>Register with your email and password.</p>
             </div>
-            <LoginForm /> 
+            
         </div>
        
     </div>
