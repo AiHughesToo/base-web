@@ -1,0 +1,50 @@
+.main-page {
+    margin: 45px 75px 75px 75px;
+    display: flex;
+    flex-direction: row;
+    @media (max-width: 600px) {
+        margin: 45px 5px 5px 5px;
+        flex-wrap: wrap;
+    }
+
+    .login-content {
+        border-width: 2px;
+        border-style: dashed;
+        border-color: rgb(108, 108, 203);
+        padding: 5px;
+        flex: 33.33%;
+        @media (max-width: 600px) {
+            flex: 90.33%;
+        }
+        
+    }
+    .register-content {
+        border-width: 2px;
+        border-style: dashed;
+        border-color: rgb(193, 193, 194);
+        padding: 5px;
+        flex: 33.33%;
+        @media (max-width: 600px) {
+            flex: 90.33%;
+        }
+    }
+
+    .heading-container {
+        text-align: center;
+    }
+}
+
+.content-container {
+    border-width: 2px;
+    border-style: dashed;
+    border-color: black;
+    padding: 5px;
+    margin-bottom: 20px;
+
+    .content-body-container {
+        border-width: 2px;
+        border-style: dotted;
+        border-color: black;
+        padding: 10px;
+    }
+}
