@@ -1,12 +1,16 @@
 import { Outlet, Link } from 'react-router-dom';
+import { useContext } from 'react';
 import './navigation.style.scss';
+import { UserContext } from '../../../contexts/user.context';
 
 const Navigation = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log( currentUser);
     return (
       <div className='page-background'>
         <div className='header-container'>
             <div className='header-left'>
-                <h1 className='left-menu'>Left</h1>
+              <Link to='/account'><h1 className='left-menu'>Account</h1></Link>
             </div>
             <div className='header-center'>
               <Link to='/'>
@@ -14,9 +18,13 @@ const Navigation = () => {
               </Link>
             </div>
             <div className='header-right'>
-              <Link to='/login'>
-                <h1 className='right-menu'>Login</h1>
-              </Link>
+
+              { currentUser ? ( 
+                 <Link to='/login'><h1 className='right-menu'>Log Out</h1></Link>
+              ) : (
+                 <Link to='/login'><h1 className='right-menu'>Login</h1></Link>
+              )}
+             
             </div>
 
         </div>
