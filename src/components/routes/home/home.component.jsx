@@ -1,24 +1,58 @@
-import '../../../category.style.scss';
-import Card from '../../../components/card/card.component';
-const Home = () => {
+import '../../styles/main_style.scss';
+import { connect } from "react-redux";
+import LeftBar from '../../leftBar/leftBar.component';
+import LoginForm from '../../login/login_form.component';
+import Register from '../../register/register.component';
+import MainContent from '../../mainContent/mainContent.component';
 
-  const categories = [
-    {
-      id: 1,
-      title: 'Equine',
-      imageURL: 'https://i.ibb.co/cvpntL1/hats.png'
-    }
-  ];
 
-  return (
-    <div className='main-page'>
-      {categories.map((category) =>(
-        <Card key={category.id} category={category}/>
-      ))}
-      
-    </div>
 
-  );
+const Home = (props) => {
+  const { fName, token, user }= props;
+
+  if(user) {
+    return (
+      <div className='main-page'>
+         <LeftBar background='#333' title='Left Bar' />
+         <MainContent user={user} />
+       
+      </div>
+  
+    );
+  } else {
+    return (
+      <div className='main-page'>
+        <div className='login-content'>
+            <div className='heading-container'>
+                <h2>If you have an account please Sign In</h2>
+                <p>Sign in with your email and password.</p>
+            </div>
+            <LoginForm /> 
+            
+        </div>
+        <div className='login-content'>
+            <div className='heading-container'>
+                <h2>Register for an account.</h2>
+                <p>Fill in the form below.</p>
+            </div>
+            <Register />
+            
+        </div>
+       
+      </div>
+  
+    );
+  };
 }
 
-export default Home;
+
+const mapStateToProps = state => {
+  console.log(state);
+  return {
+    fName: state.user.fName,
+    token: state.user.token,
+    user: state.user
+  };
+};
+
+export default connect(mapStateToProps, { }) (Home);

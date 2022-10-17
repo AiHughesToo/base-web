@@ -1,20 +1,19 @@
-import './card.styles.scss'
 
-const Card = ({ category }) => {
+import '../styles/main_style.scss';
 
-    const { imageURL, title } = category;
+const Card = ({ background, title }) => {
 
     return (
         <div className='content-container' style={{
-            backgroundImage: `url(${imageURL})`
+            backgroundImage: `url(${background})`,
+            backgroundRepeat: "no-repeat"
             }}>
             <div className='content-body-container'>
               <h2>{title}</h2>
-              <p>paragraph text</p>
             </div>
           </div> 
     )
 
-}
+};
 
-export default Card
+export default Card;

@@ -1,13 +1,5 @@
-import { EMAIL_CHANGED, LOGIN_USER_SUCCESS } from './types';
-import {store} from '../store/store';
+import { LOGIN_USER_SUCCESS, REGISTER_USER } from './types';
 
-export const emailChanged = (text) => {
-    console.log('Im in the action');
-    return {
-      type: EMAIL_CHANGED,
-      payload: text
-    };
-  };
 
   export const loginUser = ({ email, password }) => {
       console.log('im in the action')
@@ -37,6 +29,38 @@ export const emailChanged = (text) => {
         payload: { token: response.token,
                   userType: response.user_type,
                   fName: response.user_f_name,
+                  user: response,
+                  loading: false 
+        }
+    });
+
+  };
+
+  export const registerUser = ({ email, password, fName, lName }) => {
+    console.log('register user action');
+    return (dispatch) => {
+      fetch('https://auth-base-api.herokuapp.com/user', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 'email': email, 'password': password, 'f_name': fName, 'l_name': lName, 'account_type': 'empolyee' })
+      })
+      .then((response) => response.json())
+      .then(response => registerUserSuccess(dispatch, response));
+    }
+  };
+
+  const registerUserSuccess = (dispatch, response) => {
+    console.log(response);
+
+    dispatch({
+        type: LOGIN_USER_SUCCESS,
+        payload: {
+                  userType: response.user_type,
+                  fName: response.user_f_name,
+                  lName: response.user_l_name,
                   loading: false 
         }
     });

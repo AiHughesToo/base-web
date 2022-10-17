@@ -1,12 +1,13 @@
 .content-container {
-    border-width: 2px;
+    border-width: 1px;
     border-style: dashed;
     border-color: black;
+    height: 75px;
     padding: 10px;
     margin-bottom: 20px;
 
     .content-body-container {
-        border-width: 2px;
+        border-width: 1px;
         border-style: dotted;
         border-color: black;
         padding: 10px;

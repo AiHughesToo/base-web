@@ -1,5 +1,7 @@
-import '../../../category.style.scss';
+
+import '../../styles/main_style.scss';
 import LoginForm from '../../login/login_form.component';
+import RegisterUser from '../../register/register.component';
 
 const Login = () => {
 
@@ -13,12 +15,12 @@ const Login = () => {
             </div>
             <LoginForm /> 
         </div>
-        <div className='register-content'>
+        <div className='login-content'>
             <div className='heading-container'>
                 <h2>I do not have an account</h2>
                 <p>Register with your email and password.</p>
             </div>
-            
+            <RegisterUser />
         </div>
        
     </div>

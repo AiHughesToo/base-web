@@ -1,6 +1,6 @@
 import { Outlet, Link } from 'react-router-dom';
 import { useContext } from 'react';
-import './navigation.style.scss';
+import '../../styles/main_style.scss';
 import { UserContext } from '../../../contexts/user.context';
 
 const Navigation = () => {

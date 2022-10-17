@@ -3,6 +3,10 @@
     height: auto;
     margin: auto;
     padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 $sub-color: grey;
@@ -14,22 +18,23 @@ $main-color: black;
   color: $main-color;
 }
 
-.group {
-  position: relative;
-  margin: 45px 0;
-
+.input-holder {
+  width: 90%;
+  padding: 15px;
+ 
   .form-input {
-    background: none;
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     color: $sub-color;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
     width: 100%;
+    flex: 1;
+    flex-direction: row;
     border: none;
-    border-radius: 0;
+    border-radius: 20px;
     border-bottom: 1px solid $sub-color;
-    margin: 25px 0;
+    margin: 10px 0;
 
     &:focus {
       outline: none;
@@ -46,9 +51,9 @@ $main-color: black;
 
   .form-input-label {
     color: $sub-color;
-    font-size: 16px;
-    font-weight: normal;
-    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    position: relative;
     pointer-events: none;
     left: 5px;
     top: 10px;
