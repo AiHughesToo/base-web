@@ -6,16 +6,17 @@ import Register from '../../register/register.component';
 import MainContent from '../../mainContent/mainContent.component';
 
 
-
 const Home = (props) => {
-  const { fName, token, user }= props;
+  const { fName, token, user } = props;
 
-  if(user) {
+  if(token) {
     return (
       <div className='main-page'>
          <LeftBar background='#333' title='Left Bar' />
-         <MainContent user={user} />
-       
+         <div className='main-content-holder' >
+         <MainContent />
+         <MainContent />
+         </div>
       </div>
   
     );

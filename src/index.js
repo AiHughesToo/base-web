@@ -4,6 +4,9 @@ import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { PersistGate } from 'redux-persist/integration/react';
+import { persistStore, persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage'
 
 
 import { Provider } from 'react-redux';
@@ -12,12 +15,24 @@ import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+const persistConfig = {
+  key: 'root',
+  storage,
+  blacklist: []
+}
+
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = createStore(persistedReducer, {}, applyMiddleware(ReduxThunk));
+const persistor = persistStore(store);
+
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Provider store={store}>
+        <PersistGate persistor={persistor} >
           <App />
+        </PersistGate>
       </Provider>
     </BrowserRouter>
   </React.StrictMode>

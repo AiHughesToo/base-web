@@ -23,13 +23,13 @@ export default (state = INITIAL_STATE, action) => {
         fName: action.payload.fName,
         userType: action.payload.userType,
         password: ''};
-        case REGISTER_USER:
-            console.log(' Register the user reducer');
-            return {
-                ...state,
-                fName: action.payload.fName,
-                lName: action.payload.lName,
-                userType: action.payload.userType
+    case REGISTER_USER:
+        console.log(' Register the user reducer');
+        return {
+            ...state,
+            fName: action.payload.fName,
+            lName: action.payload.lName,
+            userType: action.payload.userType
             }
     default:
     return state;
